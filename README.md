@@ -11,6 +11,9 @@ Web hosted chess game.
 ## Wireframes
 ---
 
+## Component Hierarchy
+---
+
 ## API
 ---
 I am using AirTable to keep a history of user data while in game. This data will be used to keep track of move history.
