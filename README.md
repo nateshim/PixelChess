@@ -8,6 +8,9 @@ PixelChess
 ---
 Web hosted chess game.
 
+## Wireframes
+---
+
 ## API
 ---
 I am using AirTable to keep a history of user data while in game. This data will be used to keep track of move history.
@@ -17,11 +20,6 @@ I am using AirTable to keep a history of user data while in game. This data will
 ```
 ***Insert API calls here***
 ```
-
-## Wireframes
----
-
-
 
 ## MVP
 
@@ -43,11 +41,6 @@ I am using AirTable to keep a history of user data while in game. This data will
 |8/31/21| Backend/Frontend | Done |
 |9/1/21| Frontend/Styling | Done |
 |9/2/21| Post-MVP Content | Partial |
-
-## Priority Matrix
----
-
-![](https://res.cloudinary.com/danlsii8g/image/upload/v1630341827/Untitled_rpkird.jpg)
 
 ## Timeframes
 
