@@ -11,7 +11,7 @@ function App() {
       <Route exact path="/">
         <Home/>
       </Route>
-      <Route path="/game">
+      <Route path="/game/:id">
         <Game/>
       </Route>
     </div>

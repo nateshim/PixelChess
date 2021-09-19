@@ -2,11 +2,11 @@
 
 ## Project Name
 ---
-PixelChess
+Puzzle Chess
 
 ## Project Description
 ---
-Web hosted chess game.
+Web hosted chess game where users can solve chess puzzles and submit their own.
 
 ## Wireframes
 ---
@@ -14,48 +14,46 @@ Web hosted chess game.
 ## Component Hierarchy
 ---
 
-## API
+## API and Data Sample
 ---
-I am using AirTable to keep a history of user data while in game. This data will be used to keep track of move history.
 
-## API Snippet
----
 ```
-***Insert API calls here***
+await axios.get(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Table%201`, headers: {
+    Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`
+})
 ```
 
 ## MVP
 
-* TODO: put mvp here
+* Set Up Routes/Links and all web pages
+* Set up axios to make calls to the API
+* Render chess puzzles
+* Enable users to GET and POST chess puzzles on the site
 
 ### Post-MVP
-* TODO: put post-mvp here
-
-#### Post-post-MVP
----
-* idk 
+* CSS Transitions/Animations 
 
 ## Project Schedule
 ---
 
 |Day| Deliverable| Status |
 |-      |:--:|   -:|
-|8/30/21| Project Approval/Backend | Done |
-|8/31/21| Backend/Frontend | Done |
-|9/1/21| Frontend/Styling | Done |
-|9/2/21| Post-MVP Content | Partial |
+|8/30/21| Project Approval/Backend | In Progress |
+|8/31/21| Backend/Frontend | In Progress |
+|9/1/21| Frontend/Styling | In Progress |
+|9/2/21| Post-MVP Content | In Progress |
 
 ## Timeframes
 
 |Component| Priority| Estimated Time | Time Invested | Actual Time |
 |-        |  :--:   |  :--:          |   :--:        |           -:|
-|Essential HTML|M|3hrs|3hrs|6hrs|
-|Axios|H|3hrs|1hr|2hrs|
-|JS|H|3hrs|3hrs|6hrs|
-|Essential CSS|L|3hrs|1hr|2hrs|
-|Responsive Behavior|H|3hrs|3hrs|2hr|
-|Extra/Decorative HTML|L|3hrs|2hrs|4hrs|
-|Extra/Decorative CSS|L|3hrs|2hrs|5hrs|
-|Post-MVP Content|M|3hrs|3hrs|8hrs|
-|Total| H | 24hrs|18hrs|35hrs|
+|Essential HTML|M|3hrs|3hrs|TBD|
+|Axios|H|3hrs|1hr|TBD|
+|JS|H|3hrs|3hrs|TBD|
+|Essential CSS|L|3hrs|1hr|TBD|
+|Responsive Behavior|H|3hrs|3hrs|TBD|
+|Extra/Decorative HTML|L|3hrs|2hrs|TBD|
+|Extra/Decorative CSS|L|3hrs|2hrs|TBD|
+|Post-MVP Content|M|3hrs|3hrs|TBD|
+|Total| H | 24hrs|18hrs|TBD|
 
