@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .App {
-  background-color: #d4cfc3;
+  background-color: #52716C;
   display: flex;
   justify-content: center;
   min-height: 100vh;

@@ -1,48 +1,32 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import PuzzleLink from './PuzzleLink';
 import { baseURL, config } from '../services';
+import '../css/Home.css';
 
-export default function Home() {
-const [sessionID, setSessionID] = useState('');
-
-const deleteSession = async(id) => {
-    console.log(id);
-    await axios.delete(`${baseURL}/${id}`, config);
-}
-
-const alertUser = (e) => {
-  e.preventDefault();
-  e.returnValue = "";
-  return "";
-}
+export default function Home(props) {
+const [puzzles, setPuzzles] = useState([]);
 
 useEffect(() => {
-  //onload create session id 
-  const newSession = {
-    moves: ''
+  const getPuzzles = async() => {
+    const res = await axios.get(baseURL, config);
+    console.log(res.data.records);
+    setPuzzles(res.data.records);
   }
-
-  const createSession = async() => {
-    const response = await axios.post(baseURL, {
-      fields: newSession
-    }, config);
-    console.log(response);
-    setSessionID(response.data.id);
-  }
-  createSession();
-  window.addEventListener('beforeunload', alertUser);
-
-  return () => {
-    console.log(sessionID);
-    deleteSession(sessionID);
-  }
-}, [])
+  getPuzzles();
+}, [props.toggleFetch]);
   
   return (
-    <div>
-      <Link to={`/game/${sessionID}`}>Play</Link>
-      <button onClick={deleteSession}>Click</button>
+    <div className="Home">
+      {puzzles.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime)).reverse().map((puzzle) => (
+        <PuzzleLink key={puzzle.fields.name} puzzle={puzzle}/>
+      ))}
+      <Link to="/new-puzzle">
+        <button className="Link">
+        +
+        </button>
+      </Link>
     </div>
   )
 }

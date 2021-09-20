@@ -1,18 +1,25 @@
+import {useState} from 'react';
 import {Route} from 'react-router-dom';
-import Game from './components/Game';
 import Home from './components/Home';
+import NewPuzzleForm from './components/NewPuzzleForm';
+import Puzzle from './components/Puzzle';
 import './App.css';
 
 
 function App() {
   
+  const [toggleFetch, setToggleFetch] = useState(false);
+  
   return (
     <div className="App">
       <Route exact path="/">
-        <Home/>
+        <Home toggleFetch={toggleFetch}/>
       </Route>
-      <Route path="/game/:id">
-        <Game/>
+      <Route path="/puzzle/:id">
+        <Puzzle/>
+      </Route>
+      <Route path="/new-puzzle">
+        <NewPuzzleForm setToggleFetch={setToggleFetch}/>
       </Route>
     </div>
   );

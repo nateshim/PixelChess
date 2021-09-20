@@ -1,0 +1,16 @@
+.Home {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.Link {
+  background-color: #C4C4C4;
+  border: none;
+  color: #ffffff;
+  height: 140px;
+  width: 140px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
