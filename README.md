@@ -20,7 +20,7 @@ Web hosted chess game where users can solve chess puzzles and submit their own.
 ## Component Hierarchy
 ---
 
-![Component Hierarchy](https://i.ibb.co/7t5cy6b/Untitled-Diagram.png)
+![Component Hierarchy](https://i.ibb.co/GcwDbPv/Untitled-Diagram-drawio.png)
 
 ## API and Data Sample
 ---
@@ -29,6 +29,24 @@ Web hosted chess game where users can solve chess puzzles and submit their own.
 await axios.get(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/Table%201`, headers: {
     Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_KEY}`
 })
+```
+
+```
+{
+  "records": [
+    {
+      "id": "recaZ7JV0GwxJC0NB",
+      "fields": {
+        "initialBoardState": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        "numMovesNeeded": "1",
+        "moves": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        "author": "nateshim",
+        "name": "fakepuzzle"
+      },
+      "createdTime": "2021-09-17T23:16:06.000Z"
+    }
+  ]
+}
 ```
 
 ## MVP
