@@ -14,7 +14,7 @@ Web hosted chess game where users can solve chess puzzles and submit their own.
 ## Component Hierarchy
 ---
 
-![Component Hierarchy](https://ibb.co/Sw8Tv9J)
+![Component Hierarchy](https://freeimage.host/i/RPPY1n)
 
 ## API and Data Sample
 ---
