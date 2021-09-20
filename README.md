@@ -10,11 +10,17 @@ Web hosted chess game where users can solve chess puzzles and submit their own.
 
 ## Wireframes
 ---
+![Home Wireframe Desktop](https://i.ibb.co/McPj0Hn/Home.png)
+![Game Wireframe Desktop](https://i.ibb.co/S65crBZ/Game.png)
+![NewPuzzleForm Wireframe Desktop](https://i.ibb.co/pfSFJL8/NewLevel.png)
+![Home Mobile](https://i.ibb.co/56s5GkG/X-1.png)
+![Game Mobile](https://i.ibb.co/p4srcMd/X-2.png)
+![NewPuzzleForm Mobile](https://i.ibb.co/cLZc5g3/X-3.png)
 
 ## Component Hierarchy
 ---
 
-![Component Hierarchy](https://freeimage.host/i/RPPY1n)
+![Component Hierarchy](https://i.ibb.co/7t5cy6b/Untitled-Diagram.png)
 
 ## API and Data Sample
 ---
