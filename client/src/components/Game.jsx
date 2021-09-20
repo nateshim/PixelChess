@@ -36,13 +36,6 @@ export default function Game() {
           to: move.targetSquare,
           promotion: 'q',
         })}
-        lightSquareStyle={
-          {backgroundImage: `url(${LightSquare})`}
-        }
-        darkSquareStyle={
-          {backgroundImage: `url(${DarkSquare})`}
-        }
-        pieces={customPieces}
         />
   )
 }
