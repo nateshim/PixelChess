@@ -1,5 +1,24 @@
+button {
+  color: #52716C;
+  background-color: white;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .NewPuzzleForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.NewPuzzleFormInput {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.ErrorMessage {
+  color: #c41d29;
+  font-size: 15px;
+  padding-bottom: 5px;
 }

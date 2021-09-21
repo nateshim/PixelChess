@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import PuzzleLink from './PuzzleLink';
 import { baseURL, config } from '../services';
+import Footer from './Footer';
 import '../css/Home.css';
 
 export default function Home(props) {
@@ -19,14 +20,17 @@ useEffect(() => {
   
   return (
     <div className="Home">
-      {puzzles.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime)).reverse().map((puzzle) => (
-        <PuzzleLink key={puzzle.fields.name} puzzle={puzzle}/>
-      ))}
-      <Link to="/new-puzzle">
-        <button className="Link">
-        +
-        </button>
-      </Link>
+      <div className="HomeGrid">
+        {puzzles.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime)).reverse().map((puzzle) => (
+          <PuzzleLink key={puzzle.fields.name} puzzle={puzzle}/>
+          ))}
+        <Link to="/new-puzzle">
+          <button className="Link">
+          +
+          </button>
+        </Link>
+      </div>
+      <Footer/>
     </div>
   )
 }

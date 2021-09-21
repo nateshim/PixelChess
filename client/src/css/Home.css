@@ -1,16 +1,38 @@
 .Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 200px;
+}
+
+.HomeGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
-  align-items: center;
+  grid-gap: 20px;
+  
 }
 
 .Link {
   background-color: #C4C4C4;
   border: none;
+  box-shadow: 1px 5px 5px 0px #4e4e54;
   color: #ffffff;
   height: 140px;
   width: 140px;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
+  font-weight: bold;
+}
+
+.Footer {
+  bottom: 0px;
+  color: #ffffff;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  left: 0px;
+  position: fixed;
+  width: 100%;
 }

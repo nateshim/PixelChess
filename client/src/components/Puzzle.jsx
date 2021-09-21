@@ -26,7 +26,6 @@ export default function Puzzle() {
         to: moves.slice(6,8),
         promotion: 'q',
       }];
-      setMoves(moves.slice(8));
       return currMoves;
     } else {
       const currMoves = [{
@@ -34,7 +33,6 @@ export default function Puzzle() {
         to: moves.slice(2),
         promotion: 'q'
       }, {}];
-      setMoves(moves.slice(4));
       return currMoves;
     }
   } 
@@ -54,7 +52,9 @@ export default function Puzzle() {
     if (chess.move(move)) {
       //check if move equals airtable move
       const [correctMove, enemyMove] = getNextMove();  
-      if (correctMove.to !== move.to && correctMove.from !== move.from) {
+      console.log(move);
+      console.log(correctMove);
+      if (correctMove.to !== move.to || correctMove.from !== move.from) {
         chess.undo();
       } else if (correctMove.to === move.to && correctMove.from === move.from) {
         if (numMoves === 1) {
@@ -64,6 +64,7 @@ export default function Puzzle() {
             chess.move(enemyMove);
             setNumMoves(numMoves - 1);
             setFen(chess.fen());
+            setMoves(moves.slice(8));
           }, 300);
         }
       }
