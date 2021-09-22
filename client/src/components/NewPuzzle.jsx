@@ -26,7 +26,21 @@ function NewPuzzle(props) {
   const [hasMovesError, setHasMovesError] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isInvalidPuzzle, setIsInvalidPuzzle] = useState(false);
 
+  const isValidPuzzle = () => {
+    for (let i = 0; i < numMoves; i++) {
+      const currMove = {
+        from: moves.slice(i, i+2),
+        to: moves.slice(i+2, i+4),
+        promotion: 'q'
+      };
+      chess.move(currMove);
+      if (chess.game_over && i !== numMoves-1) return false;
+    }
+    return chess.game_over() ?  true : false;
+  }
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const nameRegex = /^[a-z]{1,12}$/;
@@ -34,24 +48,31 @@ function NewPuzzle(props) {
     const numMovesRegex = /^[0-9]{1,45}$/;
     const movesRegex = /[A-Ha-h][1-8][A-Ha-h][1-8]*$/;
     const validInitialBoard = chess.load(initialBoard);
-    nameRegex.test(name) ? setHasNameError(false) : setHasNameError(true);
-    authorRegex.test(author) ? setHasAuthorError(false) : setHasAuthorError(true);
-    validInitialBoard ? setHasInitialBoardError(false) : setHasInitialBoardError(true);
-    numMovesRegex.test(numMoves) ? setHasNumMovesError(false) : setHasNumMovesError(true);
-    movesRegex.test(moves) ? setHasMovesError(false) : setHasMovesError(true);
     if (!nameRegex.test(name) || !authorRegex.test(author) || !numMovesRegex.test(numMoves) || !movesRegex.test(moves) || !validInitialBoard) {
+      nameRegex.test(name) ? setHasNameError(false) : setHasNameError(true);
+      authorRegex.test(author) ? setHasAuthorError(false) : setHasAuthorError(true);
+      validInitialBoard ? setHasInitialBoardError(false) : setHasInitialBoardError(true);
+      numMovesRegex.test(numMoves) ? setHasNumMovesError(false) : setHasNumMovesError(true);
+      movesRegex.test(moves) ? setHasMovesError(false) : setHasMovesError(true);
     } else {
       //test inputs
-      const newPuzzle = {
-        name,
-        author,
-        initialBoard,
-        numMoves,
-        moves
+      setIsLoading(true);
+      if (isValidPuzzle()) {
+        const newPuzzle = {
+          name,
+          author,
+          initialBoard,
+          numMoves,
+          moves
+        }
+        await axios.post(baseURL, {fields: newPuzzle}, config);
+        props.setToggleFetch((curr) => curr = !curr);
+        history.push("/");
+      } else {
+        setIsLoading(false);
+        setIsInvalidPuzzle(true);
+        console.log("nope");
       }
-      await axios.post(baseURL, {fields: newPuzzle}, config);
-      props.setToggleFetch((curr) => curr = !curr);
-      history.push("/");
     }
   }
 
@@ -73,6 +94,7 @@ function NewPuzzle(props) {
           className="NewPuzzleForm" 
           setToggleFetch={props.setToggleFetch}
           handleSubmit={handleSubmit} 
+          isInvalidPuzzle={isInvalidPuzzle}
           info={
             {
               name,

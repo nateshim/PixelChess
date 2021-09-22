@@ -49,6 +49,7 @@ export default function NewPuzzleForm(props) {
         hasError={props.info.hasMovesError}
         errorMessage="incorrect format. make sure that there are no spaces or commmas in between moves"
         />
+      {props.isInvalidPuzzle ? <div className="ErrorMessage">Invalid Puzzle</div> : <div></div>}
       <button type="submit">Publish Puzzle!</button>
     </form>
   );
