@@ -2,14 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 200px;
+  min-height: 100vh;
 }
 
 .HomeGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-  
+  grid-gap: 20px;  
 }
 
 .Link {
@@ -22,17 +21,98 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: bold;
+  animation: grow 500ms;
 }
 
 .Footer {
-  bottom: 0px;
   color: #ffffff;
   display: flex;
-  height: 50px;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
-  left: 0px;
-  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  position: absolute;
+}
+
+.Loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.Loading .circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  animation: move 500ms linear 0ms infinite;
+  margin-right: 40px;
+}
+.Loading .circle:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: grow 500ms linear 0ms infinite;
+}
+.Loading .circle:last-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 0;
+  animation: grow 500ms linear 0s infinite reverse;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0, 0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+@keyframes move {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(45px);
+  }
+}
+
+@keyframes springIn {
+  from {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.07);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  90% {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes springOut {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-width : 768px) { 
+  .HomeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

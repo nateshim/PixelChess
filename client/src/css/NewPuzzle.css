@@ -5,6 +5,20 @@ button {
   font-family: 'Montserrat', sans-serif;
 }
 
+.BackButton {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.NewPuzzleFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .NewPuzzleForm {
   display: flex;
   flex-direction: column;
@@ -15,10 +29,11 @@ button {
   display: flex;
   flex-direction: column;
   color: white;
+  width: 250px;
+  padding-bottom: 10px;
 }
 
 .ErrorMessage {
   color: #c41d29;
   font-size: 15px;
-  padding-bottom: 5px;
 }

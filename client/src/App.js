@@ -4,6 +4,7 @@ import Home from './components/Home';
 import NewPuzzleForm from './components/NewPuzzleForm';
 import Puzzle from './components/Puzzle';
 import './App.css';
+import NewPuzzle from './components/NewPuzzle';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         <Puzzle/>
       </Route>
       <Route path="/new-puzzle">
-        <NewPuzzleForm setToggleFetch={setToggleFetch}/>
+        <NewPuzzle setToggleFetch={setToggleFetch}/>
       </Route>
     </div>
   );

@@ -38,14 +38,14 @@ export default function Puzzle() {
   } 
 
   useEffect(() => {
-    const getInitialBoardState = async () => {
+    const getInitialBoard = async () => {
       const res = await axios.get(`${baseURL}/${params.id}`, config);
-      chess.load(res.data.fields.initialBoardState);
+      chess.load(res.data.fields.initialBoard);
       setNumMoves(res.data.fields.numMoves);
       setMoves(res.data.fields.moves);
       setFen(chess.fen());
     }
-    getInitialBoardState();
+    getInitialBoard();
   }, [params.id]);
 
   const handleMove = (move) => {

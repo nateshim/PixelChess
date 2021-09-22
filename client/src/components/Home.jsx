@@ -9,9 +9,12 @@ import '../css/Home.css';
 export default function Home(props) {
 const [puzzles, setPuzzles] = useState([]);
 
+const [isLoading, setIsLoading] = useState(true);
+
 useEffect(() => {
   const getPuzzles = async() => {
     const res = await axios.get(baseURL, config);
+    setIsLoading(false);
     console.log(res.data.records);
     setPuzzles(res.data.records);
   }
@@ -20,17 +23,28 @@ useEffect(() => {
   
   return (
     <div className="Home">
-      <div className="HomeGrid">
-        {puzzles.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime)).reverse().map((puzzle) => (
-          <PuzzleLink key={puzzle.fields.name} puzzle={puzzle}/>
-          ))}
-        <Link to="/new-puzzle">
-          <button className="Link">
-          +
-          </button>
-        </Link>
+      {isLoading ?
+      <div className="Loading">
+        <span className="circle"></span>
+        <span className="circle"></span>
+        <span className="circle"></span>
+        <span className="circle"></span>
       </div>
-      <Footer/>
-    </div>
+      :
+      <div>
+        <div className="HomeGrid">
+          {puzzles.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime)).reverse().map((puzzle) => (
+            <PuzzleLink key={puzzle.fields.name} puzzle={puzzle}/>
+            ))}
+          <Link to="/new-puzzle">
+            <button className="Link">
+            +
+            </button>
+          </Link>
+        </div>
+        <Footer/>
+      </div>
+    }
+      </div>
   )
 }
