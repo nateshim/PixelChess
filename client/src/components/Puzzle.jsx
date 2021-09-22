@@ -4,6 +4,8 @@ import Chessboard from 'chessboardjsx';
 import Chess from 'chess.js';
 import axios from 'axios';
 import { baseURL, config, chessConfig } from '../services';
+import LoadingScreen from './LoadingScreen';
+import "../css/Puzzle.css";
 
 export default function Puzzle() {
   const [chess] = useState(
@@ -14,6 +16,8 @@ export default function Puzzle() {
   const [numMoves, setNumMoves] = useState(0);
   const [moves, setMoves] = useState('');
   const params = useParams();
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const getNextMove = () => {
     if (moves.length >= 4) {
@@ -39,11 +43,13 @@ export default function Puzzle() {
 
   useEffect(() => {
     const getInitialBoard = async () => {
+      setIsLoading(true);
       const res = await axios.get(`${baseURL}/${params.id}`, config);
       chess.load(res.data.fields.initialBoard);
       setNumMoves(res.data.fields.numMoves);
       setMoves(res.data.fields.moves);
       setFen(chess.fen());
+      setIsLoading(false);
     }
     getInitialBoard();
   }, [params.id]);
@@ -72,14 +78,18 @@ export default function Puzzle() {
     }
   }
   return (
-    <Chessboard
-        width={720}
-        position={fen}
-        onDrop={(move) => handleMove({
-          from: move.sourceSquare,
-          to: move.targetSquare,
-          promotion: 'q',
-        })}
-        />
+    <div className="Puzzle">
+      <LoadingScreen isLoading={isLoading}>
+        <Chessboard
+          width={720}
+          position={fen}
+          onDrop={(move) => handleMove({
+            from: move.sourceSquare,
+            to: move.targetSquare,
+            promotion: 'q',
+          })}
+          />
+      </LoadingScreen>
+    </div>
   )
 }

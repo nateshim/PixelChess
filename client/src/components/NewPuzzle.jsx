@@ -4,6 +4,7 @@ import axios from 'axios';
 import Chess from 'chess.js';
 import { baseURL, config } from '../services';
 import NewPuzzleForm from './NewPuzzleForm';
+import LoadingScreen from './LoadingScreen';
 import Footer from './Footer';
 import '../css/NewPuzzle.css';
 
@@ -78,15 +79,7 @@ function NewPuzzle(props) {
 
   return (
     <div className="NewPuzzleFormContainer">
-      {isLoading ?
-      <div className="Loading">
-        <span className="circle"></span>
-        <span className="circle"></span>
-        <span className="circle"></span>
-        <span className="circle"></span>
-      </div>
-      :
-      <div>
+      <LoadingScreen isLoading={isLoading}>
         <Link className="BackButton" to="/">
           <button>Back</button>
         </Link>
@@ -116,8 +109,7 @@ function NewPuzzle(props) {
           }
         />
         <Footer/>
-      </div>
-      }
+      </LoadingScreen>
     </div>
   );
 };

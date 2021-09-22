@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import PuzzleLink from './PuzzleLink';
 import { baseURL, config } from '../services';
+import LoadingScreen from './LoadingScreen';
 import Footer from './Footer';
 import '../css/Home.css';
 
@@ -23,15 +24,7 @@ useEffect(() => {
   
   return (
     <div className="Home">
-      {isLoading ?
-      <div className="Loading">
-        <span className="circle"></span>
-        <span className="circle"></span>
-        <span className="circle"></span>
-        <span className="circle"></span>
-      </div>
-      :
-      <div>
+      <LoadingScreen isLoading={isLoading}>
         <div className="HomeGrid">
           {puzzles.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime)).reverse().map((puzzle) => (
             <PuzzleLink key={puzzle.fields.name} puzzle={puzzle}/>
@@ -43,8 +36,7 @@ useEffect(() => {
           </Link>
         </div>
         <Footer/>
-      </div>
-    }
-      </div>
+      </LoadingScreen>
+    </div>
   )
 }
