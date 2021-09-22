@@ -18,6 +18,7 @@ export default function Puzzle() {
   const params = useParams();
 
   const [isLoading, setIsLoading] = useState(false);
+  const [boardSize, setBoardSize] = useState(700);
 
   const getNextMove = () => {
     if (moves.length >= 4) {
@@ -49,6 +50,7 @@ export default function Puzzle() {
       setNumMoves(res.data.fields.numMoves);
       setMoves(res.data.fields.moves);
       setFen(chess.fen());
+      setBoardSize(window.innerWidth/2);
       setIsLoading(false);
     }
     getInitialBoard();
@@ -81,13 +83,13 @@ export default function Puzzle() {
     <div className="Puzzle">
       <LoadingScreen isLoading={isLoading}>
         <Chessboard
-          width={720}
           position={fen}
           onDrop={(move) => handleMove({
             from: move.sourceSquare,
             to: move.targetSquare,
             promotion: 'q',
           })}
+          width={boardSize}
           />
       </LoadingScreen>
     </div>
