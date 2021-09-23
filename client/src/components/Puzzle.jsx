@@ -4,6 +4,7 @@ import Chessboard from 'chessboardjsx';
 import Chess from 'chess.js';
 import axios from 'axios';
 import { baseURL, config, chessConfig } from '../services';
+import BackButton from './BackButton';
 import LoadingScreen from './LoadingScreen';
 import "../css/Puzzle.css";
 
@@ -82,15 +83,21 @@ export default function Puzzle() {
   return (
     <div className="Puzzle">
       <LoadingScreen isLoading={isLoading}>
-        <Chessboard
-          position={fen}
-          onDrop={(move) => handleMove({
-            from: move.sourceSquare,
-            to: move.targetSquare,
-            promotion: 'q',
-          })}
-          width={boardSize}
+        <div>
+          <BackButton/>
+          <Chessboard
+            boardStyle={{
+              boxShadow: '0px 5px 10px 2px #4e4e54',
+            }}
+            position={fen}
+            onDrop={(move) => handleMove({
+              from: move.sourceSquare,
+              to: move.targetSquare,
+              promotion: 'q',
+            })}
+            width={boardSize}
           />
+        </div>
       </LoadingScreen>
     </div>
   )

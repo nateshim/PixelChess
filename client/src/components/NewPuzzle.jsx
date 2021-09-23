@@ -3,6 +3,7 @@ import {Link, useHistory} from 'react-router-dom';
 import axios from 'axios';
 import Chess from 'chess.js';
 import { baseURL, config } from '../services';
+import BackButton from './BackButton';
 import NewPuzzleForm from './NewPuzzleForm';
 import LoadingScreen from './LoadingScreen';
 import Footer from './Footer';
@@ -80,9 +81,7 @@ function NewPuzzle(props) {
   return (
     <div className="NewPuzzleFormContainer">
       <LoadingScreen isLoading={isLoading}>
-        <Link className="BackButton" to="/">
-          <button>Back</button>
-        </Link>
+        <BackButton/>
         <NewPuzzleForm 
           className="NewPuzzleForm" 
           setToggleFetch={props.setToggleFetch}
