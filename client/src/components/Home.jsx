@@ -28,7 +28,6 @@ useEffect(() => {
   const getPuzzles = async() => {
     const res = await axios.get(baseURL, config);
     setIsLoading(false);
-    console.log(res.data.records);
     setPuzzles(res.data.records);
   }
   getPuzzles();

@@ -13,7 +13,9 @@ function Modal(props) {
       setHideRating(true);
       const res = await axios.get(`${baseURL}/${props.id}`,config);
       const resRating = res.data.fields.rating;
-      await axios.patch(`${baseURL}/${props.id}`, {fields: {rating: resRating.concat(e.toString())}}, config)
+      await axios.patch(`${baseURL}/${props.id}`, {fields: {rating: 
+        resRating ? resRating.concat(e.toString()) : e.toString()
+      }}, config)
     }
     postRating();
   }

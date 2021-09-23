@@ -64,8 +64,6 @@ export default function Puzzle() {
     if (chess.move(move)) {
       //check if move equals airtable move
       const [correctMove, enemyMove] = getNextMove();  
-      console.log(move);
-      console.log(correctMove);
       if (correctMove.to !== move.to || correctMove.from !== move.from) {
         chess.undo();
       } else if (correctMove.to === move.to && correctMove.from === move.from) {

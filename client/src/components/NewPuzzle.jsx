@@ -74,7 +74,6 @@ function NewPuzzle(props) {
       } else {
         setIsLoading(false);
         setIsInvalidPuzzle(true);
-        console.log("nope");
       }
     }
   }
