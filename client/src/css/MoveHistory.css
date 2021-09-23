@@ -1,0 +1,10 @@
+.Move {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.Move p {
+  margin-right: 10px;
+}

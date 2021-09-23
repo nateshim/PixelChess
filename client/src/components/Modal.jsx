@@ -3,6 +3,7 @@ import {Link, useHistory} from 'react-router-dom';
 import ReactStars from 'react-rating-stars-component';
 import axios from 'axios';
 import {baseURL, config} from '../services';
+import "../css/Modal.css";
 
 function Modal(props) {
   const [hideRating, setHideRating] = useState(false);

@@ -7,6 +7,7 @@ import { baseURL, config, chessConfig } from '../services';
 import BackButton from './BackButton';
 import LoadingScreen from './LoadingScreen';
 import Modal from './Modal';
+import MoveHistory from './MoveHistory';
 import "../css/Puzzle.css";
 
 export default function Puzzle() {
@@ -23,6 +24,7 @@ export default function Puzzle() {
   const [boardSize, setBoardSize] = useState(700);
 
   const [showModal, setShowModal] = useState(false);
+  const [movesTaken, setMovesTaken] = useState([]);
 
   const getNextMove = () => {
     if (moves.length >= 4) {
@@ -70,12 +72,15 @@ export default function Puzzle() {
         if (numMoves === 1) {
           setNumMoves(numMoves - 1);
           setShowModal(true);
+          setMovesTaken(prevArray => [...prevArray, correctMove]);
         } else {
+          setMovesTaken(prevArray => [...prevArray, correctMove]);
           setTimeout(() => {
             chess.move(enemyMove);
             setNumMoves(numMoves - 1);
             setFen(chess.fen());
             setMoves(moves.slice(8));
+            setMovesTaken(prevArray => [...prevArray, enemyMove]);
           }, 500);
         }
       }
@@ -89,7 +94,8 @@ export default function Puzzle() {
         <BackButton/>
         <div className="ChessBoardContainer">
           <div className="Moves">
-            Moves Left: {numMoves}
+            <div className="MovesLeft">Moves Left: {numMoves}</div>
+            <MoveHistory movesTaken={movesTaken}/>
           </div>
           <Chessboard
             boardStyle={{
