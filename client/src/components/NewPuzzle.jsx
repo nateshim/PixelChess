@@ -65,7 +65,8 @@ function NewPuzzle(props) {
           author,
           initialBoard,
           numMoves,
-          moves
+          moves,
+          rating: 0
         }
         await axios.post(baseURL, {fields: newPuzzle}, config);
         props.setToggleFetch((curr) => curr = !curr);

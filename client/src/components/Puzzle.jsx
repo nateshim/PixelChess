@@ -78,7 +78,7 @@ export default function Puzzle() {
             setNumMoves(numMoves - 1);
             setFen(chess.fen());
             setMoves(moves.slice(8));
-          }, 1000);
+          }, 500);
         }
       }
       setFen(chess.fen());

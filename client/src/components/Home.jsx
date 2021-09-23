@@ -30,7 +30,7 @@ useEffect(() => {
             <PuzzleLink key={puzzle.fields.name} puzzle={puzzle}/>
             ))}
           <Link to="/new-puzzle">
-            <button className="Link">
+            <button className="NewPuzzleLink">
             +
             </button>
           </Link>

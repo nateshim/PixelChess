@@ -35,6 +35,7 @@
 .ModalButtonsContainer {
   display: flex;
   flex-direction: row;
+  padding-top: 15px;
 }
 
 .ModalScreen {
@@ -68,6 +69,13 @@
   font-weight: bold;
   justify-content: center;
   padding-top: 20px;
+}
+
+.RatingMessage {
+  font-family: 'Montserrat', 'sans-serif';
+  font-weight:lighter;
+  font-size: 30px;
+  color: #52716C;
 }
 
 @keyframes modal-show {
