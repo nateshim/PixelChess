@@ -21,6 +21,7 @@ button {
 }
 
 .NewPuzzleForm {
+  animation: grow 500ms;
   display: flex;
   flex-direction: column;
   justify-content: center;

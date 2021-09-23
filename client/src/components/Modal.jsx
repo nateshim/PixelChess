@@ -12,7 +12,7 @@ function Modal(props) {
               <Link to="/">
                 <button className="ModalButton">Back Home</button>
               </Link>
-              <Link onClick={() => {history.go(0)}}>
+              <Link className="ModalLink" onClick={() => {history.go(0)}}>
                 <button className="ModalButton">Play Again</button>
               </Link>
             </div>

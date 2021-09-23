@@ -5,6 +5,7 @@
 }
 
 .ChessBoardContainer {
+  animation: modal-show 500ms; 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -30,7 +31,7 @@
   color: white;
   font-size: 30px;
 }
-
+ 
 .ModalButtonsContainer {
   display: flex;
   flex-direction: row;
