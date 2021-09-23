@@ -32,6 +32,11 @@
   margin-bottom: 10px;
 }
 
+.RatingNumber {
+  font-size: 15px;
+  font-weight: lighter;
+}
+
 .NewPuzzleLink {
   background-color: #b3b3b3;
   border: none;

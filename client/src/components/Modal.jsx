@@ -13,7 +13,7 @@ function Modal(props) {
       setHideRating(true);
       const res = await axios.get(`${baseURL}/${props.id}`,config);
       const resRating = res.data.fields.rating;
-      await axios.patch(`${baseURL}/${props.id}`, {fields: {rating: resRating.concat(`${e.toString()},`)}}, config)
+      await axios.patch(`${baseURL}/${props.id}`, {fields: {rating: resRating.concat(e.toString())}}, config)
     }
     postRating();
   }
@@ -31,7 +31,7 @@ function Modal(props) {
               onChange={handleRating}
               onClick={handleRating}
               size={30}
-              activeColor="#e6ba39"
+              activeColor="#ffcc40"
               />
             }
             <div className="ModalButtonsContainer">

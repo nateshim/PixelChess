@@ -12,6 +12,18 @@ const [puzzles, setPuzzles] = useState([]);
 
 const [isLoading, setIsLoading] = useState(true);
 
+const getRating = (puzzle) => {
+  if (puzzle.fields.rating) {
+  let ratingsArray = puzzle.fields.rating.split('');
+    let ratingsSum = ratingsArray.reduce((total, num) => {
+      return parseInt(total) + parseInt(num);
+    });
+    return ratingsSum/ratingsArray.length;
+  } else {
+    return 0;
+  }
+}
+
 useEffect(() => {
   const getPuzzles = async() => {
     const res = await axios.get(baseURL, config);
@@ -27,7 +39,7 @@ useEffect(() => {
       <LoadingScreen isLoading={isLoading}>
         <div className="HomeGrid">
           {puzzles.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime)).reverse().map((puzzle) => (
-            <PuzzleLink key={puzzle.fields.name} puzzle={puzzle}/>
+            <PuzzleLink key={puzzle.fields.name} puzzle={puzzle} rating={getRating(puzzle)}/>
             ))}
           <Link to="/new-puzzle">
             <button className="NewPuzzleLink">

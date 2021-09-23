@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import {Route} from 'react-router-dom';
 import Home from './components/Home';
-import NewPuzzleForm from './components/NewPuzzleForm';
 import Puzzle from './components/Puzzle';
 import './App.css';
 import NewPuzzle from './components/NewPuzzle';

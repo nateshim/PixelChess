@@ -58,7 +58,7 @@ export default function Puzzle() {
       setIsLoading(false);
     }
     getInitialBoard();
-  }, [params.id]);
+  }, [chess, params.id]);
 
   const handleMove = (move) => {
     if (chess.move(move)) {
