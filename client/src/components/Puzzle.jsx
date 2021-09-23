@@ -6,6 +6,7 @@ import axios from 'axios';
 import { baseURL, config, chessConfig } from '../services';
 import BackButton from './BackButton';
 import LoadingScreen from './LoadingScreen';
+import Modal from './Modal';
 import "../css/Puzzle.css";
 
 export default function Puzzle() {
@@ -20,6 +21,8 @@ export default function Puzzle() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [boardSize, setBoardSize] = useState(700);
+
+  const [showModal, setShowModal] = useState(false);
 
   const getNextMove = () => {
     if (moves.length >= 4) {
@@ -67,7 +70,8 @@ export default function Puzzle() {
         chess.undo();
       } else if (correctMove.to === move.to && correctMove.from === move.from) {
         if (numMoves === 1) {
-          console.log("You win!");
+          setNumMoves(numMoves - 1);
+          setShowModal(true);
         } else {
           setTimeout(() => {
             chess.move(enemyMove);
@@ -83,8 +87,12 @@ export default function Puzzle() {
   return (
     <div className="Puzzle">
       <LoadingScreen isLoading={isLoading}>
-        <div>
-          <BackButton/>
+        <Modal showModal={showModal} id={params.id}/>
+        <BackButton/>
+        <div className="ChessBoardContainer">
+          <div className="Moves">
+            Moves Left: {numMoves}
+          </div>
           <Chessboard
             boardStyle={{
               boxShadow: '0px 5px 10px 2px #4e4e54',
@@ -97,6 +105,7 @@ export default function Puzzle() {
             })}
             width={boardSize}
           />
+          <div></div>
         </div>
       </LoadingScreen>
     </div>

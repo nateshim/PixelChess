@@ -3,3 +3,82 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.ChessBoardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.Modal {
+  position: fixed;
+  z-index: 6;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+.ModalButton {
+  animation: grow 500ms;
+  background: #52716C;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 10px 2px #b3b3b3;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  font-size: 30px;
+}
+
+.ModalButtonsContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.ModalScreen {
+  animation: modal-show 500ms;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 600px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0px 5px 10px 2px #4e4e54;
+  border-radius: 5px;
+}
+
+.ModalTitle {
+  font-family: 'Montserrat', 'sans-serif';
+  font-weight: bold;
+  font-size: 40px;
+  color: #52716C;
+}
+
+.Moves {
+  display: flex;
+  font-family: 'Montserrat', 'sans-serif';
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-width : 768px) { 
+  .ChessBoardContainer {
+  }
+}
