@@ -31,6 +31,16 @@
   }
 }
 
-@media only screen and (min-device-width : 320px) and (max-width : 768px) { 
-  
+@media only screen and (min-device-width : 320px) and (max-width : 767px) { 
+  .ChessBoardContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .Moves {
+    font-size: 20px;
+    order: 1;
+    padding-top: 0px;
+    bottom: 20%;
+    position: absolute;
+    margin: 5px;
+  }
 }
