@@ -9,10 +9,6 @@
   margin-right: 10px;
 }
 
-.Piece {
-  margin-left: -10px;
-}
-
 @media only screen and (min-device-width : 320px) and (max-width : 767px) { 
   .Move {
     font-size: 10px;
