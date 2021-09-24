@@ -102,6 +102,7 @@ export default function Puzzle() {
             <div className="MovesLeft">Moves Left: {numMoves}</div>
             <MoveHistory movesTaken={movesTaken}/>
           </div>
+          <div className="ChessBoard">
           <Chessboard
             boardStyle={{
               boxShadow: '0px 5px 10px 2px #4e4e54',
@@ -113,9 +114,9 @@ export default function Puzzle() {
               piece: move.piece,
               promotion: 'q',
             })}
-            width={boardSize}
+            width={500}
           />
-          <div></div>
+          </div>
         </div>
       </LoadingScreen>
     </div>

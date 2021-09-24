@@ -10,6 +10,10 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+.ChessBoard {
+  transform: scale(1, 1);
+}
+
 .Moves {
   display: flex;
   flex-direction: column;
@@ -32,6 +36,9 @@
 }
 
 @media only screen and (min-device-width : 320px) and (max-width : 767px) { 
+  .Puzzle {
+    transform: scale(.5, .5);
+  }
   .ChessBoardContainer {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -40,7 +47,6 @@
     order: 1;
     padding-top: 0px;
     overflow-y: scroll;
-    position: relative;
     margin: 5px;
   }
 }
