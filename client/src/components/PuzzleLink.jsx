@@ -12,7 +12,7 @@ export default function PuzzleLink(props) {
             count={5}
             edit={false}
             isHalf={true}
-            size={25}
+            size={20}
             value={props.rating}
           />
           <div className="RatingNumber">({
