@@ -55,3 +55,14 @@
   font-size: 30px;
   color: #52716C;
 }
+
+@media only screen and (min-device-width : 320px) and (max-width : 767px) { 
+  .ModalScreen {
+    width: 300px;
+    height: 300px;
+  }
+
+  .ModalButton {
+    font-size: 20px;
+  }
+}
