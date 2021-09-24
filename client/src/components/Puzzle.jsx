@@ -31,19 +31,24 @@ export default function Puzzle() {
       const currMoves = [{
         from: moves.slice(0, 2),
         to: moves.slice(2, 4),
+        piece: chess.get(moves.slice(2,4)),
         promotion: 'q',
       }, {
         from: moves.slice(4, 6),
         to: moves.slice(6,8),
+        piece: chess.get(moves.slice(4,6)),
         promotion: 'q',
       }];
+      console.log(currMoves);
       return currMoves;
     } else {
       const currMoves = [{
         from: moves.slice(0, 2),
         to: moves.slice(2),
+        piece: chess.get(moves.slice(2)),
         promotion: 'q'
       }, {}];
+      console.log(currMoves);
       return currMoves;
     }
   } 
@@ -105,6 +110,7 @@ export default function Puzzle() {
             onDrop={(move) => handleMove({
               from: move.sourceSquare,
               to: move.targetSquare,
+              piece: move.piece,
               promotion: 'q',
             })}
             width={boardSize}
